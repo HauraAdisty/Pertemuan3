@@ -1,5 +1,6 @@
 package com.haura.pertemuan3sep
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Contacts.Intents
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnLogin :Button
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

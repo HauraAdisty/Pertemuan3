@@ -18,7 +18,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="Submit"
         android:id="@+id/btnSubmit"/>
 
@@ -32,9 +31,28 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="nama hewan"
         android:id="@+id/btnnamahewan"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="recycle view"
+        android:id="@+id/btnRv"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Recycle Buah"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/btnbuah"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Recycle Movie"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/btnMovie"/>
 
 </LinearLayout>
