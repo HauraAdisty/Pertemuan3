@@ -16,7 +16,8 @@ import com.haura.pertemuan3sep.model.ModelMovie
 
 class  MovieAdapter constructor(
     private val getActivity: Recycle_View_Card_Movie,
-    private val movieList: List<ModelMovie>) :
+    private val movieList: List<ModelMovie>,
+    private val itemClickListener: (Int) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.MyViewHolder>()
 {
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -40,11 +41,14 @@ class  MovieAdapter constructor(
         holder.txtMovie.text = movieList[position].title
         holder.imgMovie.setImageResource(movieList[position].image)
 
-        holder.cardView.setOnClickListener(){
-            Toast.makeText(
-                getActivity, movieList[position].title,
-                Toast.LENGTH_SHORT
-            ).show()
+//        holder.cardView.setOnClickListener(){
+//            Toast.makeText(
+//                getActivity, movieList[position].title,
+//                Toast.LENGTH_SHORT
+//            ).show()
+
+            holder.itemView.setOnClickListener {
+                itemClickListener(position)
+            }
         }
     }
-}

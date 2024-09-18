@@ -1,5 +1,6 @@
 package com.haura.pertemuan3sep
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +25,12 @@ class Recycle_View_Card_Movie : AppCompatActivity() {
 
         movieList = ArrayList()
         RecycleView = findViewById(R.id.rv_list) as RecyclerView
-        movieAdapter = MovieAdapter(this, movieList)
+        movieAdapter = MovieAdapter(this@Recycle_View_Card_Movie, movieList) { position ->
+            // Menampilkan dialog gambar detail ketika item di-klik
+            showDetailDialog(position)
+        }
+
+
         val layoutManager : RecyclerView.LayoutManager = GridLayoutManager(this, 2)
         RecycleView!!.layoutManager =layoutManager
         RecycleView!!.adapter = movieAdapter
@@ -37,6 +43,14 @@ class Recycle_View_Card_Movie : AppCompatActivity() {
             insets
         }
     }
+
+    private fun showDetailDialog(position: Int) {
+        val intent = Intent(this, DetailPage::class.java) // Pastikan kelas "PhotoDetail" benar
+        intent.putExtra("imageResId", movieList[position].image) // Mengirim imageResId ke Activity PhotoDetail
+        intent.putExtra("title", movieList[position].title)
+        startActivity(intent)
+    }
+
     private fun prepareMovieList(){
         var movie = ModelMovie( "avatar", R.drawable.avatar)
         movieList.add(movie)

@@ -1,5 +1,6 @@
 package com.haura.pertemuan3sep
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -16,8 +17,36 @@ class ListViewActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_list_view)
-        Lv_hewan = findViewById(R.id.Lv_hewan)
+        val Lv_hewan = findViewById<ListView>(R.id.Lv_hewan)
         val namahewan = listOf("Gajah","Beruang","Panda","Kucing")
+        val ciriHewan = listOf(
+            "Hewan terbesar di darat, memiliki belalai panjang.",
+            "Hewan melata yang tidak memiliki kaki, beberapa berbisa.",
+            "Hewan besar berbulu tebal, biasanya ditemukan di hutan.",
+            "Hewan khas Cina, berbulu hitam dan putih.",
+            "Hewan air yang hidup di laut dan sungai.",
+            "Hewan ternak yang menghasilkan susu.",
+            "Hewan ternak yang sering dijadikan daging kurban."
+        )
+        val tinggiHewan = listOf(
+            "tinggi : 3 - 4 meter",
+            "tinggi : 0,5 - 12 meter",
+            "tinggi : 1,5 - 3 meter (berdiri tegak)",
+            "tinggi : 60 - 90 cm (duduk), 1,2 - 1,8 meter (berdiri)",
+            "tinggi : Bervariasi (misalnya paus bisa mencapai 30 meter)",
+            "tinggi : 1,2 - 1,5 meter",
+            "tinggi : 50 - 60 cm"
+        )
+        val beratHewan = listOf(
+            "berat : 2.700 - 6.000 kg",
+            "berat : 0,5 - 250 kg",
+            "berat : 80 - 600 kg",
+            "berat : 70 - 160 kg",
+            "berat : Bervariasi (misalnya paus bisa mencapai 180.000 kg)",
+            "berat : 400 - 1.000 kg",
+            "berat : 20 - 140 kg"
+        )
+
         Lv_hewan.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,namahewan)
 
         // untuk bisa di ketik klik setiap item dari list nya
@@ -26,6 +55,16 @@ class ListViewActivity : AppCompatActivity() {
                 this, "Anda memilih: ${namahewan[position]}",
                 Toast.LENGTH_SHORT
             ).show()
+
+            val intent = Intent(this, DetailHewan::class.java)
+
+
+            intent.putExtra("namaHewan", namahewan[position])
+            intent.putExtra("ciriHewan", ciriHewan[position])
+            intent.putExtra("tinggiHewan", tinggiHewan[position])
+            intent.putExtra("beratHewan", beratHewan[position])
+
+            startActivity(intent)
 
         }
 

@@ -1,11 +1,13 @@
 package com.haura.pertemuan3sep.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.haura.pertemuan3sep.DetailPage
 import com.haura.pertemuan3sep.R
 import com.haura.pertemuan3sep.model.ModelBuah
 
@@ -33,6 +35,14 @@ RecyclerView.Adapter<BuahAdapter.ModelViewHolder>() {
     override fun onBindViewHolder(holder: ModelViewHolder, position: Int) {
      holder.itemImage.setImageResource(itemList[position].image)
         holder.ItemText.setText(itemList[position].deskripsi)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, DetailPage::class.java)
+            intent.putExtra("imageResId", itemList[position].image)  // Mengirim gambar
+            intent.putExtra("deskripsi", itemList[position].deskripsi)  // Mengirim deskripsi
+            context.startActivity(intent)  // Memulai activity detail
+        }
     }
 
     override fun getItemCount(): Int {
