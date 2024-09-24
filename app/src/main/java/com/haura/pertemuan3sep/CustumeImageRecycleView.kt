@@ -22,7 +22,7 @@ class CustumeImageRecycleView : AppCompatActivity() {
         rv_buah.layoutManager = GridLayoutManager(this,1,
             GridLayoutManager.VERTICAL,false)
 
-        val adapter = BuahAdapter(Mocklist.getModel()as ArrayList<ModelBuah>)
+        val adapter = BuahAdapter(Mocklist.getModel()as ArrayList<ModelBuah>, this)
         rv_buah.adapter =adapter
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

@@ -52,24 +52,24 @@ class Recycle_View_Card_Movie : AppCompatActivity() {
     }
 
     private fun prepareMovieList(){
-        var movie = ModelMovie( "avatar", R.drawable.avatar)
+        var movie = ModelMovie( "avatar", R.drawable.avatar,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
 
-        movie = ModelMovie( "batma", R.drawable.batman)
+        movie = ModelMovie( "batma", R.drawable.batman,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "End Game", R.drawable.end_game)
+        movie = ModelMovie( "End Game", R.drawable.end_game,"29 September 2024",getString(R.string.sinopsis2))
         movieList.add(movie)
-        movie = ModelMovie( "Hulk", R.drawable.hulk)
+        movie = ModelMovie( "Hulk", R.drawable.hulk,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "Inception", R.drawable.inception)
+        movie = ModelMovie( "Inception", R.drawable.inception,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "Jumanji", R.drawable.lucy)
+        movie = ModelMovie( "Jumanji", R.drawable.lucy,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "Jurassic World", R.drawable.jurassic_world)
+        movie = ModelMovie( "Jurassic World", R.drawable.jurassic_world,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "Spider Man", R.drawable.spider_man)
+        movie = ModelMovie( "Spider Man", R.drawable.spider_man,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = ModelMovie( "Venom", R.drawable.venom)
+        movie = ModelMovie( "Venom", R.drawable.venom,"29 September 2024",getString(R.string.sinopsis1))
         movieList.add(movie)
 
         movieAdapter!!.notifyDataSetChanged()

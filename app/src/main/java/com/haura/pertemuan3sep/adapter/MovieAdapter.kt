@@ -1,5 +1,6 @@
 package com.haura.pertemuan3sep.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.haura.pertemuan3sep.DetailPage
 import com.haura.pertemuan3sep.R
 import com.haura.pertemuan3sep.RecycleView
 import com.haura.pertemuan3sep.Recycle_View_Card_Movie
@@ -47,8 +49,14 @@ class  MovieAdapter constructor(
 //                Toast.LENGTH_SHORT
 //            ).show()
 
-            holder.itemView.setOnClickListener {
-                itemClickListener(position)
-            }
+        holder.itemView.setOnClickListener() {
+            val intent = Intent(getActivity, DetailPage::class.java)
+            intent.putExtra("title", movieList[position].title)
+            intent.putExtra("image", movieList[position].image)
+            intent.putExtra("tanggal", movieList[position].tanggal)
+            intent.putExtra("sinopsis", movieList[position].sinopsis)
+            //intent.putExtra("judul", itemList[position].judul)
+            getActivity.startActivity(intent)
+        }
         }
     }

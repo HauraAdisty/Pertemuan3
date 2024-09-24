@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.haura.pertemuan3sep.CustumeImageRecycleView
 import com.haura.pertemuan3sep.DetailPage
+import com.haura.pertemuan3sep.Detail_buah2
+import com.haura.pertemuan3sep.ListViewActivity
 import com.haura.pertemuan3sep.R
 import com.haura.pertemuan3sep.model.ModelBuah
 
 
-class BuahAdapter (val itemList:ArrayList<ModelBuah>) :
+class BuahAdapter (val itemList:ArrayList<ModelBuah>,
+    private val getActivity: CustumeImageRecycleView) :
 RecyclerView.Adapter<BuahAdapter.ModelViewHolder>() {
     class ModelViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         //deklarasi widget dari item layout
@@ -37,11 +41,10 @@ RecyclerView.Adapter<BuahAdapter.ModelViewHolder>() {
         holder.ItemText.setText(itemList[position].deskripsi)
 
         holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, DetailPage::class.java)
+            val intent = Intent(getActivity, Detail_buah2::class.java)
             intent.putExtra("imageResId", itemList[position].image)  // Mengirim gambar
             intent.putExtra("deskripsi", itemList[position].deskripsi)  // Mengirim deskripsi
-            context.startActivity(intent)  // Memulai activity detail
+            getActivity.startActivity(intent)  // Memulai activity detail
         }
     }
 

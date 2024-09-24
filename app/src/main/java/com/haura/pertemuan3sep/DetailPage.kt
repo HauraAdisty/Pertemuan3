@@ -10,27 +10,33 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class DetailPage : AppCompatActivity() {
+
     @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail_page)
 
-        val imageResId = intent.getIntExtra("imageResId", 0)
+        val imageResId = intent.getIntExtra("image", 0)
         val title = intent.getStringExtra("title")
+        val tanggal = intent.getStringExtra("tanggal")
+        val sinopsis = intent.getStringExtra("sinopsis")
 
-        val imageResId2 = intent.getIntExtra("imageResId", 0)
-        val  judul = intent.getStringExtra("title")
 
         val imageView = findViewById<ImageView>(R.id.imageViewDetail)
         val textViewTitle = findViewById<TextView>(R.id.textViewTitle)
+        val textViewJudul = findViewById<TextView>(R.id.textViewJudul)
+        val textViewDesc = findViewById<TextView>(R.id.textViewDesc)
 
 
-        val imageView2 = findViewById<ImageView>(R.id.imageViewDetail)
-        val textViewTitle2 = findViewById<TextView>(R.id.textViewTitle)
+
 
         imageView.setImageResource(imageResId)
-        textViewTitle.text = title ?: "No Title"
+        textViewTitle.setText(title)
+        textViewJudul.setText(tanggal)
+        textViewDesc.setText(sinopsis)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
